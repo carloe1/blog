@@ -10,9 +10,9 @@ class Profile(models.Model):
 	def __str__(self):
 		return f"{self.user.username} Profile"
 
-	def save(self):
+	def save(self, *args, **kawrgs):
 		# Overwrite the save method of the model
-		super().save()
+		super().save(*args, **kawrgs)
 
 		img = Image.open(self.image.path)
 		if img.height > 300 or img.width > 300:
